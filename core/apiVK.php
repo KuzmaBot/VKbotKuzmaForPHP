@@ -82,5 +82,32 @@ class VK {
     return $this->call($url);
   }  
 }
+  // @deprecated
+  private function curl_get($url)
+  {
+    if(!function_exists('curl_init')) return false;
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $tmp = curl_exec ($ch);
+    curl_close ($ch);
+    $tmp = preg_replace('/(?s)<meta http-equiv="Expires"[^>]*>/i', '', $tmp);
+    return $tmp;
+  }
+  private function curl_post($url){
+    if(!function_exists('curl_init')) return false;
+    $param = parse_url($url);
+    if( $curl = curl_init() ) {
+      curl_setopt($curl, CURLOPT_URL, $param['scheme'].'://'.$param['host'].$param['path']);
+      curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($curl, CURLOPT_POST, true);
+      curl_setopt($curl, CURLOPT_POSTFIELDS, $param['query']);
+      $out = curl_exec($curl);
+      curl_close($curl);
+      return $out;
+    }
+    return false;
+  }
+
+
 
 ?>
