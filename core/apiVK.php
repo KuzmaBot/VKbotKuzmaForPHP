@@ -81,7 +81,6 @@ class VK {
     $url = str_replace('{redirect_uri}', self::CALLBACK_BLANK, $url);
     return $this->call($url);
   }  
-}
   // @deprecated
   private function curl_get($url)
   {
@@ -108,6 +107,6 @@ class VK {
     return false;
   }
 
-
+}
 
 ?>
