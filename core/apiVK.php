@@ -19,8 +19,8 @@ class VK {
   public $access_token = null;
   public $owner_id = 0;
   /**
-  * Это Конструктор (Кэп.)
-  * Передаются параметры настроек
+  * Р­С‚Рѕ РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ (РљСЌРї.)
+  * РџРµСЂРµРґР°СЋС‚СЃСЏ РїР°СЂР°РјРµС‚СЂС‹ РЅР°СЃС‚СЂРѕРµРє
   * @param array $options
   */
   function __construct($options = array()){
@@ -37,10 +37,10 @@ class VK {
     }
   }
   /**
-  * Выполнение вызова Api метода
-  * @param string $method - метод, http://vk.com/dev/methods
-  * @param array $vars - параметры метода
-  * @return array - выводит массив данных или ошибку (но тоже в массиве)
+  * Р’С‹РїРѕР»РЅРµРЅРёРµ РІС‹Р·РѕРІР° Api РјРµС‚РѕРґР°
+  * @param string $method - РјРµС‚РѕРґ, http://vk.com/dev/methods
+  * @param array $vars - РїР°СЂР°РјРµС‚СЂС‹ РјРµС‚РѕРґР°
+  * @return array - РІС‹РІРѕРґРёС‚ РјР°СЃСЃРёРІ РґР°РЅРЅС‹С… РёР»Рё РѕС€РёР±РєСѓ (РЅРѕ С‚РѕР¶Рµ РІ РјР°СЃСЃРёРІРµ)
   */
   function api($method = '', $vars = array()){
     $vars['v'] = self::API_VERSION;
@@ -49,7 +49,7 @@ class VK {
     return (array)$this->call($url);
   }
   /**
-  * Построение конечного URI для выхова
+  * РџРѕСЃС‚СЂРѕРµРЅРёРµ РєРѕРЅРµС‡РЅРѕРіРѕ URI РґР»СЏ РІС‹С…РѕРІР°
   * @param $method
   * @param string $params
   * @return string
@@ -58,9 +58,9 @@ class VK {
     return  self::METHOD_URL . $method . '?' . $params.'&access_token=' . $this->access_token;
   }
   /**
-  * Получить ссылка на запрос прав доступа
+  * РџРѕР»СѓС‡РёС‚СЊ СЃСЃС‹Р»РєР° РЅР° Р·Р°РїСЂРѕСЃ РїСЂР°РІ РґРѕСЃС‚СѓРїР°
   *
-  * @param string $type тип ответа (code - одноразовый код авторизации , token - готовый access token)
+  * @param string $type С‚РёРї РѕС‚РІРµС‚Р° (code - РѕРґРЅРѕСЂР°Р·РѕРІС‹Р№ РєРѕРґ Р°РІС‚РѕСЂРёР·Р°С†РёРё , token - РіРѕС‚РѕРІС‹Р№ access token)
   * @return mixed
   */
   public function get_code_token($type="code"){
