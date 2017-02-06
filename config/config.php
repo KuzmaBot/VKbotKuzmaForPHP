@@ -1,13 +1,7 @@
-﻿<?php
+<?php
 ini_set('display_errors', 1);
 error_reporting(0);
-/**
- * Нужно создать свое приложение ВК и указать здесь параметры
- */
-$config['secret_key'] = '';//app_secret;
-$config['client_id'] = ''; // номер приложения
-$config['user_id'] = '';//id пользователя;
-$config['scope'] = 'messages';
-$config['access_token'] = '';//access_Token;
-$v = new VK($config);
+//Строка для подтверждения адреса сервера из настроек Callback API
+$config['confirmation_token'] = ''; // [ https://vk.com/{id_group}?act=api ]
+$config['token'] = ''; // [ https://vk.com/{id_group}?act=tokens ];
 ?>
