@@ -16,7 +16,7 @@ class vk {
 		return json_decode(file_get_contents('php://input'));
 	}
 
-  	/**
+    /**
      * Get User Info.
      * @param   string $uid
      * @return  string
@@ -25,7 +25,7 @@ class vk {
 		return file_get_contents(self::METHOD_URL."users.get?user_ids={$uid}&v=".self::API_VERSION);
 	}
 
-	/**
+    /**
      * Check user is a member of the community.
      * @param   string $gid
      * @param   string $uid
@@ -36,7 +36,7 @@ class vk {
 	    return $res->response; 
 	}
 
-   /**
+    /**
      * Send messages.
      * @param   string $msg
      * @param   string $uid
@@ -54,7 +54,7 @@ class vk {
 		file_get_contents(self::METHOD_URL."messages.send?".$get_params);
 	}
 
-	/**
+    /**
      * Magic.
      * @return string
      */
